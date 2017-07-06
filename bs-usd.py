@@ -23,6 +23,8 @@ for i in range(12):
     print(line)
     file.write(str(currency+': \t'+price+' \t in '+time)+'\n')
 file.close()
+print("File name: ",filename)
+
 '''
 list_price = soup.select("div.head_info > span.value")
 list_nation = soup.select("h3.h_lst > span.blind")

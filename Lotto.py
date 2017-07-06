@@ -12,8 +12,9 @@ def main():
     basic_url = "http://nlotto.co.kr/gameResult.do?method=byWin&drwNo="
     #    for i in range(1,750):
     
-    file = open('test.txt','w')
-    for i in range(756,760):        
+#    file = open('test.txt','w')
+    file = open('Lottery.txt','w')
+    for i in range(1,762):
         resp = requests.get(basic_url + str(i))
         soup = BeautifulSoup(resp.text, "lxml")
         line = str(soup.find("meta",{"id" : "desc", "name" : "description"})['content'])
@@ -22,7 +23,12 @@ def main():
 #        end = line.find(".", begin)
 #        numbers = line[begin:end]
 #        print("Selected No: " + numbers)
-        print(line+'\n')
+
+        if i%50 == 1:
+            print(line+'\n')
+        elif i == 761:
+            print(line+'\n')
+
         file.write(line+'\n')
         
     file.close()

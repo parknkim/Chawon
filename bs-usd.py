@@ -9,13 +9,20 @@ soup = BeautifulSoup(res, "html.parser")
 #price = soup.select_one("div.head_info > span.value").string
 #print("usd/krw", price)
 
+time = soup.select("div.graph_info > span.time")[9].string
+filename = "Currency"+time+".txt"
+#print(filename)
+file = open(filename,'w')
+
 #refer to the page 37 on 파이선을 이용한 머신러닝, 딥러닝, 실전개발 입문
 for i in range(12):
     currency = soup.select("h3.h_lst > span.blind")[i].string
     price = soup.select("div.head_info > span.value")[i].string
     time = soup.select("div.graph_info > span.time")[i].string
-    print(currency,":", price, " in", time)
-
+    line = str(currency+': \t'+price+' \t in '+time)
+    print(line)
+    file.write(str(currency+': \t'+price+' \t in '+time)+'\n')
+file.close()
 '''
 list_price = soup.select("div.head_info > span.value")
 list_nation = soup.select("h3.h_lst > span.blind")

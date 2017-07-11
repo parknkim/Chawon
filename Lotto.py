@@ -14,7 +14,7 @@ def main():
     
 #    file = open('test.txt','w')
     file = open('Lottery.txt','w')
-    for i in range(1,762):
+    for i in range(760,763):
         resp = requests.get(basic_url + str(i))
         soup = BeautifulSoup(resp.text, "lxml")
         line = str(soup.find("meta",{"id" : "desc", "name" : "description"})['content'])
@@ -23,12 +23,7 @@ def main():
 #        end = line.find(".", begin)
 #        numbers = line[begin:end]
 #        print("Selected No: " + numbers)
-
-        if i%50 == 1:
-            print(line+'\n')
-        elif i == 761:
-            print(line+'\n')
-
+        print(line)
         file.write(line+'\n')
         
     file.close()

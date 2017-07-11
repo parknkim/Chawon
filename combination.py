@@ -23,11 +23,17 @@ print("=========================================================================
 total = 10
 a = range(0,total) # 45 combination 6
 
+print("The total number of event before imposing cut conditions: ", total)
+
+tmp = 0
 for i in a:
+    #    tmp = 1
     roNum = sorted(rd.sample(range(1,46),6))
     if roNum[0]+roNum[1]+roNum[2]+roNum[3]+roNum[4]+roNum[5] < 107 or roNum[0]+roNum[1]+roNum[2]+roNum[3]+roNum[4]+roNum[5] > 161: continue
     #    if roNum[0]==1 and roNum[1]==3 and roNum[2] ==12 and roNum[3] ==19 and roNum[4] ==24 and roNum[5] == 36 :
     #    if roNum[0]==1 and roNum[1]==3 and roNum[2] ==12 and roNum[3] ==21 and roNum[4] ==26:
+    tmp+=1
+    #    print("The survival number of event after imposing the cut: ", tmp)
     print("The number: "+str(i)+"   ", roNum)
-
+print("The survival number of event after imposing cut conditions: ", tmp)
 

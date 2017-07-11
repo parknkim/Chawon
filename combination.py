@@ -15,17 +15,19 @@ def ncr(n, r):
 def ncr(n,r):
     f = math.factorial
     return f(n) // f(r) // f(n-r)
-
+print("=========================================================================")
 print("Probability of being a first or send rank in Lotter = 1 over ",ncr(45,6))
 print("Probability of being a third rank in Lotter = 1 over ",ncr(45,5))
-
-a = range(0,100000) # 45 combination 6
+print("=========================================================================\n")
+#total = ncr(45,6)
+total = 10
+a = range(0,total) # 45 combination 6
 
 for i in a:
     roNum = sorted(rd.sample(range(1,46),6))
-    #    if roNum[0]+roNum[1]+roNum[2]+roNum[3]+roNum[4]+roNum[5] < 107 or roNum[0]+roNum[1]+roNum[2]+roNum[3]+roNum[4]+roNum[5] > 161: continue
+    if roNum[0]+roNum[1]+roNum[2]+roNum[3]+roNum[4]+roNum[5] < 107 or roNum[0]+roNum[1]+roNum[2]+roNum[3]+roNum[4]+roNum[5] > 161: continue
     #    if roNum[0]==1 and roNum[1]==3 and roNum[2] ==12 and roNum[3] ==19 and roNum[4] ==24 and roNum[5] == 36 :
-    if roNum[0]==1 and roNum[1]==3 and roNum[2] ==12 and roNum[3] ==21 and roNum[4] ==26:
-        print("The number: "+str(i)+"   ", roNum)
+    #    if roNum[0]==1 and roNum[1]==3 and roNum[2] ==12 and roNum[3] ==21 and roNum[4] ==26:
+    print("The number: "+str(i)+"   ", roNum)
 
 

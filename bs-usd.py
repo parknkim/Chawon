@@ -17,7 +17,7 @@ time = soup.select("div.graph_info > span.time")[9].string
 filename = "Currency"+time+".txt"
 #print(filename)
 file = open(filename,'a')
-
+file.write('============================================================\n')
 #refer to the page 37 on 파이선을 이용한 머신러닝, 딥러닝, 실전개발 입문
 for i in range(12):
     currency = soup.select("h3.h_lst > span.blind")[i].string
@@ -25,7 +25,8 @@ for i in range(12):
     time = soup.select("div.graph_info > span.time")[i].string
     line = str(currency+': \t'+price+' \t in '+time)
     print(line)
-    file.write(str(currency+': \t'+price+' \t in '+time)+'\n')
+    file.write(str(currency + ': \t' + price + ' \t in ' + time) + '\n')
+file.write('============================================================')
 file.close()
 print("File name: ",filename)
 

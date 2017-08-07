@@ -20,12 +20,15 @@ print("Probability of being a first or send rank in Lotter = 1 over ",ncr(45,6))
 print("Probability of being a third rank in Lotter = 1 over ",ncr(45,5))
 print("=========================================================================\n")
 #total = ncr(45,6)
-total = 10
+total = 20
 a = range(0,total) # 45 combination 6
 
 print("The total number of event before imposing cut conditions: ", total)
 
 tmp = 0
+filename = "Comb.txt"
+#file = open(filename, 'a')
+file = open(filename, 'w')
 for i in a:
     #    tmp = 1
     roNum = sorted(rd.sample(range(1,46),6))
@@ -35,5 +38,9 @@ for i in a:
     tmp+=1
     #    print("The survival number of event after imposing the cut: ", tmp)
     print("The number: "+str(i)+"   ", roNum)
+
+    file.write('The number: '+str(i)+'\t'+str(roNum)+'\n')
+    if tmp == 10: break
+file.close()
 print("The survival number of event after imposing cut conditions: ", tmp)
 

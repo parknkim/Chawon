@@ -20,7 +20,7 @@ print("Probability of being a first or send rank in Lotter = 1 over ",ncr(45,6))
 print("Probability of being a third rank in Lotter = 1 over ",ncr(45,5))
 print("=========================================================================\n")
 #total = ncr(45,6)
-total = 20
+total = 100
 a = range(0,total) # 45 combination 6
 
 print("The total number of event before imposing cut conditions: ", total)
@@ -37,7 +37,8 @@ for i in a:
     #    if roNum[0]==1 and roNum[1]==3 and roNum[2] ==12 and roNum[3] ==21 and roNum[4] ==26:
     tmp+=1
     #    print("The survival number of event after imposing the cut: ", tmp)
-    print("The number: "+str(i)+"   ", roNum)
+    #    print("The number("+str(tmp)+"): "+str(i)+"   ", roNum)
+    print("The number("+str(tmp)+"): ", roNum)
 
     file.write('The number: '+str(i)+'\t'+str(roNum)+'\n')
     if tmp == 10: break

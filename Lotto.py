@@ -14,7 +14,7 @@ def main():
     
 #    file = open('test.txt','w')
     file = open('Lottery.txt','w')
-    for i in range(775,783):
+    for i in range(785,792):
         resp = requests.get(basic_url + str(i))
         soup = BeautifulSoup(resp.text, "lxml")
         line = str(soup.find("meta",{"id" : "desc", "name" : "description"})['content'])
